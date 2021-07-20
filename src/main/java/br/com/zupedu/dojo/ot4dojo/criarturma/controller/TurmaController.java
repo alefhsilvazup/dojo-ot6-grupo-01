@@ -6,8 +6,11 @@ import br.com.zupedu.dojo.ot4dojo.criarturma.request.TurmaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/turmas")
@@ -17,10 +20,10 @@ public class TurmaController {
     TurmaRepository turmaRepository;
 
     @PostMapping
-    public ResponseEntity<?> cadastraTurma(TurmaRequest turmaRequest) {
-        Turma tuma = turmaRequest.toModel();
-        System.out.println(turmaRequest.toString());
+    public ResponseEntity<?> cadastraTurma(@RequestBody @Valid TurmaRequest turmaRequest) {
+        Turma turma = turmaRequest.toModel();
 
+        System.out.println(turmaRequest.toString());
         return ResponseEntity.ok().build();
 
     }

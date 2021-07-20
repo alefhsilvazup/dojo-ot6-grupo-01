@@ -22,8 +22,24 @@ public class TurmaRequest {
         this.terminaEm = terminaEm;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getIniciaEm() {
+        return iniciaEm;
+    }
+
+    public LocalDate getTerminaEm() {
+        return terminaEm;
+    }
+
     @Deprecated
     public TurmaRequest() {
+    }
+
+    public Turma toModel() {
+        return new Turma(nome, iniciaEm, terminaEm);
     }
 
     @Override
@@ -33,9 +49,5 @@ public class TurmaRequest {
                 ", iniciaEm=" + iniciaEm +
                 ", terminaEm=" + terminaEm +
                 '}';
-    }
-
-    public Turma toModel() {
-        return new Turma(nome, iniciaEm, terminaEm);
     }
 }
