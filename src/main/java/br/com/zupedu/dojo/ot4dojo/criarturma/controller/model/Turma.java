@@ -33,5 +33,9 @@ public class Turma {
 		this.iniciaEm = iniciaEm;
 		this.terminaEm = terminaEm;
 	}
+	
+	public Long getId() {
+		return id;
+	}
 
 }
