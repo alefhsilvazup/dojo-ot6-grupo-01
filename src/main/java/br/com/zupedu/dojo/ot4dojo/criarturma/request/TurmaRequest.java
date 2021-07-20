@@ -1,5 +1,7 @@
 package br.com.zupedu.dojo.ot4dojo.criarturma.request;
 
+import br.com.zupedu.dojo.ot4dojo.criarturma.controller.model.Turma;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,5 +24,18 @@ public class TurmaRequest {
 
     @Deprecated
     public TurmaRequest() {
+    }
+
+    @Override
+    public String toString() {
+        return "TurmaRequest{" +
+                "nome='" + nome + '\'' +
+                ", iniciaEm=" + iniciaEm +
+                ", terminaEm=" + terminaEm +
+                '}';
+    }
+
+    public Turma toModel() {
+        return new Turma(nome, iniciaEm, terminaEm);
     }
 }

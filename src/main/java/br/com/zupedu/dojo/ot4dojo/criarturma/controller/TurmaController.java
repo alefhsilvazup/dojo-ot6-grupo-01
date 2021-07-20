@@ -18,6 +18,10 @@ public class TurmaController {
 
     @PostMapping
     public ResponseEntity<?> cadastraTurma(TurmaRequest turmaRequest) {
-        Turma turma = turmaRequest.converte();
+        Turma tuma = turmaRequest.toModel();
+        System.out.println(turmaRequest.toString());
+
+        return ResponseEntity.ok().build();
+
     }
 }
