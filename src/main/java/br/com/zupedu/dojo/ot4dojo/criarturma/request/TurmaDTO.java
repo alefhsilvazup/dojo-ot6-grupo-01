@@ -2,24 +2,31 @@ package br.com.zupedu.dojo.ot4dojo.criarturma.request;
 
 import br.com.zupedu.dojo.ot4dojo.criarturma.model.Turma;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-public class TurmaRequest {
+public class TurmaDTO {
 
-    @Size(max=50) @NotBlank
+
+    private Long id;
+
     private String nome;
-    @NotNull
     private LocalDate iniciaEm;
-    @NotNull
     private LocalDate terminaEm;
 
-    public TurmaRequest(String nome, LocalDate iniciaEm, LocalDate terminaEm) {
-        this.nome = nome;
-        this.iniciaEm = iniciaEm;
-        this.terminaEm = terminaEm;
+    public TurmaDTO(Turma turma) {
+        this.id = turma.getId();
+        this.nome = turma.getNome();
+        this.iniciaEm = turma.getIniciaEm();
+        this.terminaEm = turma.getTerminaEm();
+    }
+
+
+    @Deprecated
+    public TurmaDTO() {
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getNome() {
@@ -32,14 +39,6 @@ public class TurmaRequest {
 
     public LocalDate getTerminaEm() {
         return terminaEm;
-    }
-
-    @Deprecated
-    public TurmaRequest() {
-    }
-
-    public Turma toModel() {
-        return new Turma(nome, iniciaEm, terminaEm);
     }
 
     @Override

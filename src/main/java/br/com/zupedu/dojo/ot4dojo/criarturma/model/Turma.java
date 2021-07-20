@@ -1,4 +1,4 @@
-package br.com.zupedu.dojo.ot4dojo.criarturma.controller.model;
+package br.com.zupedu.dojo.ot4dojo.criarturma.model;
 
 import java.time.LocalDate;
 
@@ -33,7 +33,19 @@ public class Turma {
 		this.iniciaEm = iniciaEm;
 		this.terminaEm = terminaEm;
 	}
-	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public LocalDate getIniciaEm() {
+		return iniciaEm;
+	}
+
+	public LocalDate getTerminaEm() {
+		return terminaEm;
+	}
+
 	public Long getId() {
 		return id;
 	}
